@@ -2,3 +2,14 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.Title = "Cider Site - Account";
 }
+@using CiderSite.Models
+@using System.Security.Claims
+
+@if (User.Identity.IsAuthenticated)
+{
+    <h3>Hello @User.Identity.Name</h3>
+}
+else
+{
+    <p>Unauthenticated...</p>
+}

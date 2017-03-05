@@ -2,3 +2,32 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.Title = "Cider Site - Account Signup";
 }
+
+@model CiderSite.ViewModels.RegisterViewModel
+
+<h3>Signup</h3>
+<form asp-controller="Account" asp-action="Signup">
+    <div asp-validation-summary="ModelOnly" class="red-text"></div>
+    <div class="row">
+        <div class="input-field col s12">
+            <input asp-for="Email">
+            <span asp-validation-for="Email" class="red-text"></span>
+            <label asp-for="Email"></label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-field col s12">
+            <input asp-for="Password">
+            <span asp-validation-for="Password" class="red-text"></span>
+            <label asp-for="Password"></label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-field col s12">
+            <input asp-for="ConfirmPassword">
+            <span asp-validation-for="ConfirmPassword" class="red-text"></span>
+            <label asp-for="ConfirmPassword"></label>
+        </div>
+    </div>
+    <input type="submit" class="waves-effect waves-light btn light-blue darken-1" value="Create Account" />
+</form>
