@@ -9,26 +9,26 @@
 <form asp-controller="Blog" asp-action="Edit" method="post" enctype="multipart/form-data">
     <div class="row">
         <div class="input-field col s10">
-            <label for="Author">Author</label>
-            <input type="text" id="Author" name="Author" required />
+            <label asp-for="Author">Author</label>
+            <input asp-for="Author" id="Author" name="Author" required />
         </div>
     </div>
     <div class="row">
         <div class="input-field col s10">
-            <label for="Title">Title</label>
-            <input type="text" id="Title" name="Title" required />
+            <label asp-for="Title">Title</label>
+            <input asp-for="Title" id="Title" name="Title" required />
         </div>
     </div>
     <div class="row">
         <div class="input-field col s10">
-            <label for="Intro">Intro</label>
-            <input type="text" id="Intro" name="Intro" required />
+            <label asp-for="Intro">Intro</label>
+            <input asp-for="Intro" id="Intro" name="Intro" required />
         </div>
     </div>
     <div class="row">
         <div class="input-field col s10">
-            <label for="BodyCopy">Enter blog content</label>
-            <textarea id="BodyCopy" class="materialize-textarea" name="BodyCopy" required></textarea>
+            <label asp-for="BodyCopy">Enter blog content</label>
+            <textarea asp-for="BodyCopy" id="BodyCopy" class="materialize-textarea" name="BodyCopy" required></textarea>
         </div>
     </div>
     <div class="file-field row">

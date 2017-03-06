@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using CiderSite.Models;
 using Microsoft.AspNetCore.Identity;
 using CiderSite.ViewModels;
+using System.Security.Claims;
 
 namespace CiderSite.Controllers
 {
@@ -69,6 +70,14 @@ namespace CiderSite.Controllers
         {
             await _signInManager.SignOutAsync();
             return RedirectToAction("Index");
+        }
+
+        public IActionResult Profile()
+        {
+            var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            ViewBag.UserId = userId;
+            List<Blog> blogs = _db.Blogs.Where(ph => ph.User.Id == userId).ToList();
+            return View(blogs);
         }
     }
 }

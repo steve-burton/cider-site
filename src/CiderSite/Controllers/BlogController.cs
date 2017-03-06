@@ -9,6 +9,7 @@ using CiderSite.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Authorization;
 using System.Security.Claims;
+using Microsoft.EntityFrameworkCore;
 
 namespace CiderSite.Controllers
 {
@@ -67,6 +68,20 @@ namespace CiderSite.Controllers
         {
             var thisBlog = _db.Blogs.FirstOrDefault(blogs => blogs.Id == id);
             return View(thisBlog);
+        }
+
+        public IActionResult Edit(int id)
+        {
+            var thisBlog = _db.Blogs.FirstOrDefault(blogs => blogs.Id == id);
+            return View(thisBlog);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(Blog blog)
+        {
+            _db.Entry(blog).State = EntityState.Modified;
+            _db.SaveChanges();
+            return RedirectToAction("Index", "Home");
         }
     }
 }

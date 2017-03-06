@@ -1,0 +1,34 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Cider Site - Account";
+}
+@using CiderSite.Models
+@using System.Security.Claims
+
+@model List<Blog>
+
+<h4>Hello, @User.Identity.Name</h4>
+
+<div class="row profile-row">
+    <div class="profile-blog-list">
+        <h3>Here are your articles</h3>
+        @foreach (var blog in Model)
+        {
+            <div class="profile-blog">
+                <div class="blog-list-photo">
+                    <img src="@blog.getImage()" />
+                </div>
+                <div class="blog-content">
+                    <h4>@blog.Title</h4>
+                    <p>@blog.Intro</p>
+
+                    <div class="read-article">@Html.ActionLink("Go to article", "BlogDetails", "Account", new { id = blog.Id })</div>
+                </div>
+            </div>
+
+        }
+    </div>
+    <div class="profile-recipes">
+        <h3>Here are your cider recipes</h3>
+    </div>
+</div>
