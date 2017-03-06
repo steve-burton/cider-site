@@ -7,9 +7,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CiderSite.Models
 {
-    public class ApplicationDbContext
+    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
-        public DbSet<PublicUser> PublicUsers { get; set; }
+        
         public ApplicationDbContext()
         {
         }

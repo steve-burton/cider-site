@@ -2,3 +2,26 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.Title = "Cider Site - Assign Roles";
 }
+
+<h2>Assign a role to a user</h2>
+<form asp-controller="Roles" asp-action="Assign">
+    <div asp-validation-summary="ModelOnly" class="red-text"></div>
+    <div class="row">
+        <div class="input-field col s6">
+            <input id="userName" name="userName" type="text">
+            <label for="userName">User Name</label>
+        </div>
+        <div class="input-field col s6">
+            <select name="userRole">
+                <option value="" disabled selected>Choose your role</option>
+                @foreach (var role in Model)
+                {
+                    <option value="@role.Name">@role.Name</option>
+                }
+            </select>
+            <label for="userRole">Role</label>
+        </div>
+
+    </div>
+    <input type="submit" class="waves-effect waves-light btn light-blue darken-1" value="Assign" />
+</form>

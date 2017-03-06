@@ -1,2 +1,16 @@
-﻿body {
+﻿
+/*font-family: 'Patua One', cursive;
+font-family: 'Boogaloo', cursive;
+font-family: 'Roboto', sans-serif;*/
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+.brand-logo {
+    font-family: 'Boogaloo', sans-serif;
+    letter-spacing: .05em;
+}
+div.nav-wrapper {
+    background-color: #3d2103;
+    border-color: #281602;
 }

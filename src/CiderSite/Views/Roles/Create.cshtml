@@ -2,3 +2,16 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.Title = "Cider Site - Create Roles";
 }
+
+@model Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityRole
+<h3>Create Authorization Role</h3>
+<form asp-controller="Roles" asp-action="Create">
+    <div asp-validation-summary="ModelOnly" class="red-text"></div>
+    <div class="row">
+        <div class="input-field col s12">
+            <input asp-for="Name" name="RoleName">
+            <label asp-for="Name">Role Name</label>
+        </div>
+    </div>
+    <input type="submit" class="waves-effect waves-light btn light-blue darken-1" value="Create" />
+</form>

@@ -2,3 +2,11 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.Title = "Cider Site - Roles";
 }
+
+<h3>Roles</h3>
+<br />
+@foreach (var role in Model)
+{
+    <p>@role.Name</p>
+}
+<a asp-controller="Roles" asp-action="Create">Create</a> | <a asp-controller="Roles" asp-action="Assign">Assign</a>

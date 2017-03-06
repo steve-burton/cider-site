@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using CiderSite.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CiderSite.Controllers
 {
@@ -23,7 +24,7 @@ namespace CiderSite.Controllers
         }
         public IActionResult Index()
         {
-            List<IdentityRoles> roles = _db.Roles.ToList();
+            List<IdentityRole> roles = _db.Roles.ToList();
             return View(roles);
         }
 
