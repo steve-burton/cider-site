@@ -24,10 +24,19 @@ namespace CiderSite.Models
 
         public virtual ApplicationUser User { get; set; }
 
-        public string getImage()
+        public Blog(string author, string title, string intro, string bodyCopy, byte[] photoData)
         {
-            var base64File = Convert.ToBase64String(Data);
-            return String.Format("data:image/gif;base64,{0}", base64File);
+            Author = author;
+            Title = title;
+            Intro = intro;
+            BodyCopy = bodyCopy;
+            Data = photoData;
         }
+
+        //public string getImage()
+        //{
+        //    var base64File = Convert.ToBase64String(Data);
+        //    return String.Format("data:image/gif;base64,{0}", base64File);
+        //}
     }
 }

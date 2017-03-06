@@ -7,9 +7,9 @@
 
 @if (User.Identity.IsAuthenticated)
 {
-    <h3>Hello @User.Identity.Name</h3>
+    <h4>Hello @User.Identity.Name</h4>
 }
 else
 {
-    <p>Unauthenticated...</p>
+    <h4>Please @Html.ActionLink("sign up", "Signup") for a user account.</h4>
 }

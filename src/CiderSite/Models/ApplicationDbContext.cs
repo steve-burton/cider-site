@@ -9,7 +9,7 @@ namespace CiderSite.Models
 {
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
-        
+        public DbSet<Blog> Blogs { get; set; }
         public ApplicationDbContext()
         {
         }
