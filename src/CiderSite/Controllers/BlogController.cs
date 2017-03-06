@@ -62,5 +62,11 @@ namespace CiderSite.Controllers
             _db.SaveChanges();
             return RedirectToAction("Index", "Home");
         }
+
+        public IActionResult Details(int id)
+        {
+            var thisBlog = _db.Blogs.FirstOrDefault(blogs => blogs.Id == id);
+            return View(thisBlog);
+        }
     }
 }

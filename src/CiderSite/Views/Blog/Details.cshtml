@@ -1,0 +1,13 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Cider Site - Blog";
+}
+
+@model CiderSite.Models.Blog
+
+<div class="blog-details">
+    <h3>@Html.DisplayFor(model => model.Title)</h3>
+    <h5>@Html.DisplayFor(model => model.Author)</h5>
+    <img src="@Model.getImage().ToString()" />
+    <p>@Html.DisplayFor(model => model.BodyCopy)</p>
+</div>

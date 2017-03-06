@@ -3,14 +3,48 @@
 font-family: 'Boogaloo', cursive;
 font-family: 'Roboto', sans-serif;*/
 
+/* #### Shared Layout #### */
 body {
     font-family: 'Roboto', sans-serif;
 }
+
 .brand-logo {
     font-family: 'Boogaloo', sans-serif;
     letter-spacing: .05em;
 }
+
 div.nav-wrapper {
     background-color: #3d2103;
     border-color: #281602;
+}
+
+/* #### Home #### */
+div.blog-list {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+
+div.blog-list-photo img {
+    width: 200px;
+}
+
+div.read-article {
+    margin-top: 5px;
+}
+div.read-article a {
+    background-color: #3d2103;
+    color: white;
+    padding: 3px 10px 3px 10px;
+    border-radius: 0px;
+    font-size: 0.8em;
+}
+div.read-article a:hover {
+    background-color: #82521F;
+}
+
+/* #### Blog #### */
+div.blog-details img {
+    width: 700px;
 }

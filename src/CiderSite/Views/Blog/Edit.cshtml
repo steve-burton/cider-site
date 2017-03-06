@@ -1,0 +1,45 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Cider Site - Blog";
+}
+
+@model CiderSite.Models.Blog
+
+<h3>Edit @Model.Title</h3>
+<form asp-controller="Blog" asp-action="Edit" method="post" enctype="multipart/form-data">
+    <div class="row">
+        <div class="input-field col s10">
+            <label for="Author">Author</label>
+            <input type="text" id="Author" name="Author" required />
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-field col s10">
+            <label for="Title">Title</label>
+            <input type="text" id="Title" name="Title" required />
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-field col s10">
+            <label for="Intro">Intro</label>
+            <input type="text" id="Intro" name="Intro" required />
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-field col s10">
+            <label for="BodyCopy">Enter blog content</label>
+            <textarea id="BodyCopy" class="materialize-textarea" name="BodyCopy" required></textarea>
+        </div>
+    </div>
+    <div class="file-field row">
+        <div @*class="btn brown darken-2" *@>
+            <span>Choose photo file to upload</span>
+            <input type="file" name="Data">
+        </div>
+        <div class="file-path-wrapper col s10">
+            <input class="file-path validate" type="text" placeholder="Upload image file">
+        </div>
+    </div>
+
+    <input type="submit" class="waves-effect waves-light btn brown darken-2" value="Create" />
+</form>

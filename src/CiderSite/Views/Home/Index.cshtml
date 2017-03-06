@@ -10,12 +10,14 @@
 @foreach (var blog in Model)
 {
     <div class="row blog-list">
-        @*<div class="blog-list-photo">
+        <div class="blog-list-photo">
             <img src="@blog.getImage()" />
-        </div>*@
-        @*<div class="blog-content">
+        </div>
+        <div class="blog-content">
             <h4>@blog.Title</h4>
             <p>@blog.Intro</p>
-        </div>*@
+
+            <div class="read-article">@Html.ActionLink("Read article", "Details", "Blog", new { id = blog.Id })</div>
+        </div>
     </div>
 }
