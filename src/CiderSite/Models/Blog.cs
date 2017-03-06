@@ -33,10 +33,10 @@ namespace CiderSite.Models
             Data = photoData;
         }
 
-        //public string getImage()
-        //{
-        //    var base64File = Convert.ToBase64String(Data);
-        //    return String.Format("data:image/gif;base64,{0}", base64File);
-        //}
+        public string getImage()
+        {
+            var base64File = Convert.ToBase64String(Data);
+            return String.Format("data:image/gif;base64,{0}", base64File);
+        }
     }
 }

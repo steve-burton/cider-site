@@ -30,11 +30,6 @@ namespace CiderSite.Controllers
         //    _db = db;
         //}
 
-        //public IActionResult Index()
-        //{
-        //    var blogs = _db.Blogs.ToList();
-        //    return View(blogs);
-        //}
 
         public IActionResult Create()
         {

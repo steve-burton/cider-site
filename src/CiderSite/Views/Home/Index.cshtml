@@ -2,3 +2,20 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.Title = "Cider Site - Home";
 }
+
+@using CiderSite.Models
+
+@model List<Blog>
+
+@foreach (var blog in Model)
+{
+    <div class="row blog-list">
+        @*<div class="blog-list-photo">
+            <img src="@blog.getImage()" />
+        </div>*@
+        @*<div class="blog-content">
+            <h4>@blog.Title</h4>
+            <p>@blog.Intro</p>
+        </div>*@
+    </div>
+}

@@ -22,7 +22,8 @@ namespace CiderSite.Controllers
         }
         public IActionResult Index()
         {
-            return View();
+            var blogs = _db.Blogs.ToList();
+            return View(blogs);
         }
     }
 }
