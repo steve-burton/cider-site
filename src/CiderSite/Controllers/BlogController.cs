@@ -61,7 +61,7 @@ namespace CiderSite.Controllers
 
             _db.Blogs.Add(newBlog);
             _db.SaveChanges();
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Profile", "Account");
         }
 
         public IActionResult Details(int id)
@@ -77,8 +77,18 @@ namespace CiderSite.Controllers
         }
 
         [HttpPost]
-        public IActionResult Edit(Blog blog)
+        public IActionResult Edit(Blog blog, IFormFile Data)
         {
+            if (Data != null)
+            {
+                using (Stream filestream = Data.OpenReadStream())
+                using (MemoryStream mstream = new MemoryStream())
+                {
+                    filestream.CopyTo(mstream);
+                    blog.Data = mstream.ToArray();
+                }
+            }
+            
             _db.Entry(blog).State = EntityState.Modified;
             _db.SaveChanges();
             return RedirectToAction("Index", "Home");
