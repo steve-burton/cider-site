@@ -4,6 +4,7 @@
 }
 
 @model CiderSite.Models.Blog
+@using CiderSite.Models
 
 <div class="blog-details">
     <h3>@Html.DisplayFor(model => model.Title)</h3>
@@ -11,3 +12,10 @@
     <img src="@Model.getImage().ToString()" />
     <p>@Html.DisplayFor(model => model.BodyCopy)</p>
 </div>
+
+@foreach (var comment in Model.BlogComments)
+{
+    @comment.Body<br />
+}
+
+<p>@Html.ActionLink("Add a comment", "Create", "BlogComment", new { id = Model.BlogId })</p>

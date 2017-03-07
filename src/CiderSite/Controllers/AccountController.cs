@@ -82,7 +82,7 @@ namespace CiderSite.Controllers
 
         public IActionResult BlogDetails(int id)
         {
-            var thisBlog = _db.Blogs.FirstOrDefault(blogs => blogs.Id == id);
+            var thisBlog = _db.Blogs.FirstOrDefault(blogs => blogs.BlogId == id);
             return View(thisBlog);
         }
     }

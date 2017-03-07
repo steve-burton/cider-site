@@ -8,8 +8,8 @@ using CiderSite.Models;
 namespace CiderSite.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20170306162544_BlogModel")]
-    partial class BlogModel
+    [Migration("20170307183925_UpdateBlogComment")]
+    partial class UpdateBlogComment
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -68,7 +68,7 @@ namespace CiderSite.Migrations
 
             modelBuilder.Entity("CiderSite.Models.Blog", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("BlogId")
                         .ValueGeneratedOnAdd();
 
                     b.Property<string>("Author");
@@ -83,7 +83,7 @@ namespace CiderSite.Migrations
 
                     b.Property<string>("UserId");
 
-                    b.HasKey("Id");
+                    b.HasKey("BlogId");
 
                     b.HasIndex("UserId");
 

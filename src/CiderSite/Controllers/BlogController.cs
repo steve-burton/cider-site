@@ -10,6 +10,8 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Authorization;
 using System.Security.Claims;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using System.Diagnostics;
 
 namespace CiderSite.Controllers
 {
@@ -66,13 +68,15 @@ namespace CiderSite.Controllers
 
         public IActionResult Details(int id)
         {
-            var thisBlog = _db.Blogs.FirstOrDefault(blogs => blogs.Id == id);
+            var thisBlog = _db.Blogs
+                .Include(blogs => blogs.BlogComments)
+                .FirstOrDefault(blogs => blogs.BlogId == id);
             return View(thisBlog);
         }
 
         public IActionResult Edit(int id)
         {
-            var thisBlog = _db.Blogs.FirstOrDefault(blogs => blogs.Id == id);
+            var thisBlog = _db.Blogs.FirstOrDefault(blogs => blogs.BlogId == id);
             return View(thisBlog);
         }
 
@@ -96,14 +100,14 @@ namespace CiderSite.Controllers
 
         public IActionResult Delete(int id)
         {
-            var thisBlog = _db.Blogs.FirstOrDefault(blogs => blogs.Id == id);
+            var thisBlog = _db.Blogs.FirstOrDefault(blogs => blogs.BlogId == id);
             return View(thisBlog);
         }
 
         [HttpPost, ActionName("Delete")]
         public IActionResult DeleteConfirmed(int id)
         {
-            var thisBlog = _db.Blogs.FirstOrDefault(blogs => blogs.Id == id);
+            var thisBlog = _db.Blogs.FirstOrDefault(blogs => blogs.BlogId == id);
             _db.Blogs.Remove(thisBlog);
             _db.SaveChanges();
             return RedirectToAction("Profile", "Account");

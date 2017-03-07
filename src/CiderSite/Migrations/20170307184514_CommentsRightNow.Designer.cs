@@ -8,8 +8,8 @@ using CiderSite.Models;
 namespace CiderSite.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20170305234351_Initial")]
-    partial class Initial
+    [Migration("20170307184514_CommentsRightNow")]
+    partial class CommentsRightNow
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -64,6 +64,50 @@ namespace CiderSite.Migrations
                         .HasName("UserNameIndex");
 
                     b.ToTable("AspNetUsers");
+                });
+
+            modelBuilder.Entity("CiderSite.Models.Blog", b =>
+                {
+                    b.Property<int>("BlogId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Author");
+
+                    b.Property<string>("BodyCopy");
+
+                    b.Property<byte[]>("Data");
+
+                    b.Property<string>("Intro");
+
+                    b.Property<string>("Title");
+
+                    b.Property<string>("UserId");
+
+                    b.HasKey("BlogId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Blogs");
+                });
+
+            modelBuilder.Entity("CiderSite.Models.BlogComment", b =>
+                {
+                    b.Property<int>("BlogCommentId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("AppUserId");
+
+                    b.Property<int>("BlogId");
+
+                    b.Property<string>("Body");
+
+                    b.HasKey("BlogCommentId");
+
+                    b.HasIndex("AppUserId");
+
+                    b.HasIndex("BlogId");
+
+                    b.ToTable("BlogComments");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityRole", b =>
@@ -171,6 +215,25 @@ namespace CiderSite.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens");
+                });
+
+            modelBuilder.Entity("CiderSite.Models.Blog", b =>
+                {
+                    b.HasOne("CiderSite.Models.ApplicationUser", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId");
+                });
+
+            modelBuilder.Entity("CiderSite.Models.BlogComment", b =>
+                {
+                    b.HasOne("CiderSite.Models.ApplicationUser", "AppUser")
+                        .WithMany()
+                        .HasForeignKey("AppUserId");
+
+                    b.HasOne("CiderSite.Models.Blog", "Blog")
+                        .WithMany()
+                        .HasForeignKey("BlogId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityRoleClaim<string>", b =>

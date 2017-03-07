@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace CiderSite.Migrations
 {
-    public partial class Initial : Migration
+    public partial class UpdateBlogComment : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -60,6 +60,30 @@ namespace CiderSite.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetUserTokens", x => new { x.UserId, x.LoginProvider, x.Name });
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Blogs",
+                columns: table => new
+                {
+                    BlogId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Author = table.Column<string>(nullable: true),
+                    BodyCopy = table.Column<string>(nullable: true),
+                    Data = table.Column<byte[]>(nullable: true),
+                    Intro = table.Column<string>(nullable: true),
+                    Title = table.Column<string>(nullable: true),
+                    UserId = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Blogs", x => x.BlogId);
+                    table.ForeignKey(
+                        name: "FK_Blogs_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -160,6 +184,11 @@ namespace CiderSite.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
+                name: "IX_Blogs_UserId",
+                table: "Blogs",
+                column: "UserId");
+
+            migrationBuilder.CreateIndex(
                 name: "RoleNameIndex",
                 table: "AspNetRoles",
                 column: "NormalizedName");
@@ -192,6 +221,9 @@ namespace CiderSite.Migrations
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "Blogs");
+
             migrationBuilder.DropTable(
                 name: "AspNetRoleClaims");
 

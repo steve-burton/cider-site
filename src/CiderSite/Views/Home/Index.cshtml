@@ -17,7 +17,7 @@
             <h4>@blog.Title</h4>
             <p>@blog.Intro</p>
 
-            <div class="read-article">@Html.ActionLink("Read article", "Details", "Blog", new { id = blog.Id })</div>
+            <div class="read-article">@Html.ActionLink("Read article", "Details", "Blog", new { id = blog.BlogId })</div>
         </div>
     </div>
 }
