@@ -9,5 +9,5 @@
     <h5>@Html.DisplayFor(model => model.Author)</h5>
     <img src="@Model.getImage().ToString()" />
     <p>@Html.DisplayFor(model => model.BodyCopy)</p>
-    <div class="read-article">@Html.ActionLink("Edit article", "Edit", "Blog", new { id = Model.Id })</div>
+    <div><span class="read-article">@Html.ActionLink("Edit article", "Edit", "Blog", new { id = Model.Id })</span> <span class="read-article">@Html.ActionLink("Delete article", "Delete", "Blog", new { id = Model.Id })</span></div>
 </div>

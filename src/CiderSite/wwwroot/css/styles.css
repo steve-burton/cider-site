@@ -3,6 +3,21 @@
 font-family: 'Boogaloo', cursive;
 font-family: 'Roboto', sans-serif;*/
 
+/* #### Sitewide #### */
+.read-article {
+    margin-top: 5px;
+}
+.read-article a {
+    background-color: #3d2103;
+    color: white;
+    padding: 3px 10px 3px 10px;
+    border-radius: 0px;
+    font-size: 0.8em;
+}
+.read-article a:hover {
+    background-color: #82521F;
+}
+
 /* #### Shared Layout #### */
 body {
     font-family: 'Roboto', sans-serif;
@@ -30,19 +45,7 @@ div.blog-list-photo img {
     width: 200px;
 }
 
-div.read-article {
-    margin-top: 5px;
-}
-div.read-article a {
-    background-color: #3d2103;
-    color: white;
-    padding: 3px 10px 3px 10px;
-    border-radius: 0px;
-    font-size: 0.8em;
-}
-div.read-article a:hover {
-    background-color: #82521F;
-}
+
 
 /* #### Blog #### */
 div.blog-details img {

@@ -93,5 +93,20 @@ namespace CiderSite.Controllers
             _db.SaveChanges();
             return RedirectToAction("Profile", "Account");
         }
+
+        public IActionResult Delete(int id)
+        {
+            var thisBlog = _db.Blogs.FirstOrDefault(blogs => blogs.Id == id);
+            return View(thisBlog);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        public IActionResult DeleteConfirmed(int id)
+        {
+            var thisBlog = _db.Blogs.FirstOrDefault(blogs => blogs.Id == id);
+            _db.Blogs.Remove(thisBlog);
+            _db.SaveChanges();
+            return RedirectToAction("Profile", "Account");
+        }
     }
 }
