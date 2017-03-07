@@ -91,7 +91,7 @@ namespace CiderSite.Controllers
             
             _db.Entry(blog).State = EntityState.Modified;
             _db.SaveChanges();
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Profile", "Account");
         }
     }
 }
