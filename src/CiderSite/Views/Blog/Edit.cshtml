@@ -35,11 +35,12 @@
         <div @*class="btn brown darken-2" *@>
             <span>Choose photo file to upload</span>
             <input type="file" name="Data">
+            @*<input asp-for="Data" type="file" name="Data">  // try this with "asp-for" tomorrow  *@
         </div>
         <div class="file-path-wrapper col s10">
             <input class="file-path validate" type="text" placeholder="Upload image file">
         </div>
     </div>
 
-    <input type="submit" class="waves-effect waves-light btn brown darken-2" value="Create" />
+    <input type="submit" class="waves-effect waves-light btn brown darken-2" value="Update" />
 </form>

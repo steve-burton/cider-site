@@ -2,7 +2,6 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.Title = "Cider Site - Blog";
 }
-
 @model CiderSite.Models.Blog
 
 <div class="blog-details">
@@ -10,4 +9,5 @@
     <h5>@Html.DisplayFor(model => model.Author)</h5>
     <img src="@Model.getImage().ToString()" />
     <p>@Html.DisplayFor(model => model.BodyCopy)</p>
+    <div class="read-article">@Html.ActionLink("Edit article", "Edit", "Blog", new { id = Model.Id })</div>
 </div>

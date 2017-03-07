@@ -79,5 +79,11 @@ namespace CiderSite.Controllers
             List<Blog> blogs = _db.Blogs.Where(ph => ph.User.Id == userId).ToList();
             return View(blogs);
         }
+
+        public IActionResult BlogDetails(int id)
+        {
+            var thisBlog = _db.Blogs.FirstOrDefault(blogs => blogs.Id == id);
+            return View(thisBlog);
+        }
     }
 }
