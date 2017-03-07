@@ -9,11 +9,12 @@ namespace CiderSite.Models
 {
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
-        public DbSet<Blog> Blogs { get; set; }
-        public DbSet<BlogComment> BlogComments { get; set; }
         public ApplicationDbContext()
         {
         }
+        public DbSet<Blog> Blogs { get; set; }
+        public DbSet<BlogComment> BlogComments { get; set; }
+       
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {

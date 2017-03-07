@@ -28,11 +28,6 @@ namespace CiderSite.Controllers
             _db = db;
         }
 
-        //public BlogController(ApplicationDbContext db)
-        //{
-        //    _db = db;
-        //}
-
 
         public IActionResult Create()
         {

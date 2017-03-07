@@ -13,9 +13,14 @@
     <p>@Html.DisplayFor(model => model.BodyCopy)</p>
 </div>
 
-@foreach (var comment in Model.BlogComments)
+@if (Model != null)
 {
-    @comment.Body<br />
+    <h5>Comments</h5>
+    @foreach (var comment in Model.BlogComments)
+    {
+        @comment.Body<br />
+    }
 }
+
 
 <p>@Html.ActionLink("Add a comment", "Create", "BlogComment", new { id = Model.BlogId })</p>
