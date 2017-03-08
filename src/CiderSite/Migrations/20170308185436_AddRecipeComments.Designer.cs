@@ -8,9 +8,10 @@ using CiderSite.Models;
 namespace CiderSite.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20170308185436_AddRecipeComments")]
+    partial class AddRecipeComments
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.0.0-rtm-21431")
@@ -302,7 +303,7 @@ namespace CiderSite.Migrations
                         .HasForeignKey("AppUserId");
 
                     b.HasOne("CiderSite.Models.Recipe", "Recipe")
-                        .WithMany("RecipeComments")
+                        .WithMany()
                         .HasForeignKey("RecipeId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });

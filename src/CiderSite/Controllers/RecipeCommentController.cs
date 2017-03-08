@@ -7,15 +7,16 @@ using CiderSite.Models;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Identity;
 
+
 namespace CiderSite.Controllers
 {
-    public class BlogCommentController : Controller
+    public class RecipeCommentController : Controller
     {
         //private readonly ApplicationDbContext _db;
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
 
-        public BlogCommentController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, ApplicationDbContext db)
+        public RecipeCommentController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, ApplicationDbContext db)
         {
             _userManager = userManager;
             _signInManager = signInManager;
@@ -25,21 +26,20 @@ namespace CiderSite.Controllers
         private ApplicationDbContext _db = new ApplicationDbContext();
         public IActionResult Create(int id)
         {
-            ViewBag.BlogId = id;
+            ViewBag.RecipeId = id;
             return View();
         }
 
         [HttpPost]
-        public IActionResult Create(BlogComment blogComment, int blogId)
+        public IActionResult Create(RecipeComment recipeComment, int recipeId)
         {
             string userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
             ApplicationUser user = _db.Users.FirstOrDefault(u => u.Id == userId);
-            blogComment.BlogId = blogId;
-            blogComment.AppUser = user;
-            _db.BlogComments.Add(blogComment);
+            recipeComment.RecipeId = recipeId;
+            recipeComment.AppUser = user;
+            _db.RecipeComments.Add(recipeComment);
             _db.SaveChanges();
-            return RedirectToAction("Details", "Blog", new { id = blogComment.BlogId });
+            return RedirectToAction("Details", "Recipe", new { id = recipeComment.RecipeId });
         }
     }
 }
-         

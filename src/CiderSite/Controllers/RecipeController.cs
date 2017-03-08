@@ -57,7 +57,7 @@ namespace CiderSite.Controllers
         public IActionResult Details(int id)
         {
             var thisRecipe = _db.Recipes
-                //.Include(recipes => recipes.RecipeComments)
+                .Include(recipes => recipes.RecipeComments)
                 .FirstOrDefault(recipes => recipes.RecipeId == id);
             return View(thisRecipe);
         }

@@ -19,7 +19,7 @@
 
 <p>@Html.ActionLink("Return to recipes", "Index", "Recipe")</p>
 
-@*@if (Model.RecipeComments.Count() != 0)
+@if (Model.RecipeComments.Count() != 0)
 {
     <h5>Comments</h5>
     @foreach (var comment in Model.RecipeComments)
@@ -28,5 +28,4 @@
     }
 }
 
-
-<p>@Html.ActionLink("Add a comment", "Create", "RecipeComment", new { id = Model.RecipeId })</p>*@
+<p>@Html.ActionLink("Add a comment", "Create", "RecipeComment", new { id = Model.RecipeId })</p>
