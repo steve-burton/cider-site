@@ -1,0 +1,27 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Cider Site - Blog";
+}
+
+@model CiderSite.Models.Recipe
+@using CiderSite.Models
+
+<div class="blog-details">
+    <h3>@Html.DisplayFor(model => model.Title)</h3>
+    <h5>@Html.DisplayFor(model => model.Author)</h5>
+    <p>@Html.DisplayFor(model => model.Ingredients)</p>
+    <p>@Html.DisplayFor(model => model.Directions)</p>
+    <p>@Html.DisplayFor(model => model.Notes)</p>
+</div>
+
+@*@if (Model.RecipeComments.Count() != 0)
+{
+    <h5>Comments</h5>
+    @foreach (var comment in Model.RecipeComments)
+    {
+        @comment.Body<br />
+    }
+}
+
+
+<p>@Html.ActionLink("Add a comment", "Create", "RecipeComment", new { id = Model.RecipeId })</p>*@

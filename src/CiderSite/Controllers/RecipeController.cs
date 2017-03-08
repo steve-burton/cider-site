@@ -57,5 +57,13 @@ namespace CiderSite.Controllers
             _db.SaveChanges();
             return RedirectToAction("Profile", "Account");
         }
+
+        public IActionResult Details(int id)
+        {
+            var thisRecipe = _db.Recipes
+                //.Include(recipes => recipes.RecipeComments)
+                .FirstOrDefault(recipes => recipes.RecipeId == id);
+            return View(thisRecipe);
+        }
     }
 }
