@@ -76,7 +76,9 @@ namespace CiderSite.Controllers
         {
             var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
             ViewBag.UserId = userId;
+
             List<Blog> blogs = _db.Blogs.Where(ph => ph.User.Id == userId).ToList();
+            List<Recipe> recipes = _db.Recipes.Where(ph => ph.User.Id == userId).ToList();
             return View(blogs);
         }
 

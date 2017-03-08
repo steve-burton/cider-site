@@ -13,6 +13,7 @@ namespace CiderSite.Models
         {
         }
         public DbSet<Blog> Blogs { get; set; }
+        public DbSet<Recipe> Recipes { get; set; }
         public DbSet<BlogComment> BlogComments { get; set; }
        
 

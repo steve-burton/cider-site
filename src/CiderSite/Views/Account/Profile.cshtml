@@ -12,7 +12,7 @@
 <div class="row profile-row">
     <div class="profile-blog-list">
         <h3>Here are your articles</h3>
-        <p>@Html.ActionLink("Write a new article", "Create", "Blog")</p>
+        <p>@Html.ActionLink("Write a new article", "Create", "Blog") | @Html.ActionLink("View your recipes", "Index", "Recipe")</p>
         @foreach (var blog in Model)
         {
             <div class="profile-blog">
@@ -28,9 +28,5 @@
             </div>
 
         }
-    </div>
-    <div class="profile-recipes">
-        <h3>Here are your cider recipes</h3>
-        <p>@Html.ActionLink("Add a new recipe", "Create", "Recipe")</p>
     </div>
 </div>
