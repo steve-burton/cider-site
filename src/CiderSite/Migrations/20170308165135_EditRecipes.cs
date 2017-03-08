@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace CiderSite.Migrations
 {
-    public partial class UpdateBlogComment : Migration
+    public partial class EditRecipes : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -68,11 +68,11 @@ namespace CiderSite.Migrations
                 {
                     BlogId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Author = table.Column<string>(nullable: true),
-                    BodyCopy = table.Column<string>(nullable: true),
+                    Author = table.Column<string>(nullable: false),
+                    BodyCopy = table.Column<string>(nullable: false),
                     Data = table.Column<byte[]>(nullable: true),
-                    Intro = table.Column<string>(nullable: true),
-                    Title = table.Column<string>(nullable: true),
+                    Intro = table.Column<string>(nullable: false),
+                    Title = table.Column<string>(nullable: false),
                     UserId = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
@@ -80,6 +80,30 @@ namespace CiderSite.Migrations
                     table.PrimaryKey("PK_Blogs", x => x.BlogId);
                     table.ForeignKey(
                         name: "FK_Blogs_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Recipes",
+                columns: table => new
+                {
+                    RecipeId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Author = table.Column<string>(nullable: false),
+                    Directions = table.Column<string>(nullable: false),
+                    Ingredients = table.Column<string>(nullable: false),
+                    Notes = table.Column<string>(nullable: true),
+                    Title = table.Column<string>(nullable: false),
+                    UserId = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Recipes", x => x.RecipeId);
+                    table.ForeignKey(
+                        name: "FK_Recipes_AspNetUsers_UserId",
                         column: x => x.UserId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
@@ -172,6 +196,33 @@ namespace CiderSite.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "BlogComments",
+                columns: table => new
+                {
+                    BlogCommentId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    AppUserId = table.Column<string>(nullable: true),
+                    BlogId = table.Column<int>(nullable: false),
+                    Body = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_BlogComments", x => x.BlogCommentId);
+                    table.ForeignKey(
+                        name: "FK_BlogComments_AspNetUsers_AppUserId",
+                        column: x => x.AppUserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_BlogComments_Blogs_BlogId",
+                        column: x => x.BlogId,
+                        principalTable: "Blogs",
+                        principalColumn: "BlogId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "EmailIndex",
                 table: "AspNetUsers",
@@ -186,6 +237,21 @@ namespace CiderSite.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_Blogs_UserId",
                 table: "Blogs",
+                column: "UserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_BlogComments_AppUserId",
+                table: "BlogComments",
+                column: "AppUserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_BlogComments_BlogId",
+                table: "BlogComments",
+                column: "BlogId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Recipes_UserId",
+                table: "Recipes",
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
@@ -222,7 +288,10 @@ namespace CiderSite.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Blogs");
+                name: "BlogComments");
+
+            migrationBuilder.DropTable(
+                name: "Recipes");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoleClaims");
@@ -238,6 +307,9 @@ namespace CiderSite.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUserTokens");
+
+            migrationBuilder.DropTable(
+                name: "Blogs");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");

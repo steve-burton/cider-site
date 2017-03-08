@@ -9,6 +9,7 @@ using System.IO;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Http;
+using System.Diagnostics;
 
 namespace CiderSite.Controllers
 {
@@ -24,11 +25,6 @@ namespace CiderSite.Controllers
             _signInManager = signInManager;
             _db = db;
         }
-
-        //public IActionResult Index()
-        //{
-        //    return View();
-        //}
 
         public IActionResult Index()
         {
@@ -55,7 +51,7 @@ namespace CiderSite.Controllers
 
             _db.Recipes.Add(newRecipe);
             _db.SaveChanges();
-            return RedirectToAction("Profile", "Account");
+            return RedirectToAction("Index", "Recipe");
         }
 
         public IActionResult Details(int id)
@@ -68,12 +64,13 @@ namespace CiderSite.Controllers
 
         public IActionResult Edit(int id)
         {
+            ViewBag.RecipeId = id;
             var thisRecipe = _db.Recipes.FirstOrDefault(recipes => recipes.RecipeId == id);
             return View(thisRecipe);
         }
 
         [HttpPost]
-        public IActionResult Edit(Recipe recipe)
+        public IActionResult Edit(Recipe recipe, int recipeId)
         {
             _db.Entry(recipe).State = EntityState.Modified;
             _db.SaveChanges();

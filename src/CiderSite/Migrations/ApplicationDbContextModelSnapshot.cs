@@ -70,15 +70,19 @@ namespace CiderSite.Migrations
                     b.Property<int>("BlogId")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("Author");
+                    b.Property<string>("Author")
+                        .IsRequired();
 
-                    b.Property<string>("BodyCopy");
+                    b.Property<string>("BodyCopy")
+                        .IsRequired();
 
                     b.Property<byte[]>("Data");
 
-                    b.Property<string>("Intro");
+                    b.Property<string>("Intro")
+                        .IsRequired();
 
-                    b.Property<string>("Title");
+                    b.Property<string>("Title")
+                        .IsRequired();
 
                     b.Property<string>("UserId");
 

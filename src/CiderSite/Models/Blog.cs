@@ -16,9 +16,13 @@ namespace CiderSite.Models
 
         [Key]
         public int BlogId { get; set; }
+        [Required]
         public string Author { get; set; }
+        [Required]
         public string Title { get; set; }
+        [Required]
         public string Intro { get; set; }
+        [Required]
         public string BodyCopy { get; set; }
         public byte[] Data { get; set; }
         public virtual ICollection<BlogComment> BlogComments { get; set; }

@@ -22,7 +22,7 @@ There is a dummy Admin in the database to get you started:<br>
 User name: johndoe@gmail.com<br>
 Password: Password-1
 
-Or to create your own database, in PowerShell navigate to the project and the directory containing the project.json file. In the command line, run "dotnet ef database restore" to complete the database migration.
+Or to create your own database, in PowerShell navigate to the project and the directory containing the project.json file. In the command line, run "dotnet ef database update" to complete the database migration.
 
 To run the program in VisualStudio, press the play button and view in your web browser.
 
