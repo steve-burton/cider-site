@@ -18,7 +18,9 @@
     <h5>Comments</h5>
     @foreach (var comment in Model.BlogComments)
     {
-        @comment.Body<br />
+        <div class="comment">
+            @comment.Body
+        </div>
     }
 }
 
