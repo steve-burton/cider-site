@@ -1,0 +1,43 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Cider Site - Blog";
+}
+
+@model CiderSite.Models.Recipe
+
+<h3>Edit @Model.Title</h3>
+
+<form asp-controller="Blog" asp-action="Edit" method="post">
+    <div class="row">
+        <div class="input-field col s10">
+            <label asp-for="Author">Author</label>
+            <input asp-for="Author" id="Author" name="Author" required />
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-field col s10">
+            <label asp-for="Title">Title</label>
+            <input asp-for="Title" id="Title" name="Title" required />
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-field col s10">
+            <label asp-for="Ingredients">Ingredients</label>
+            <input asp-for="Ingredients" id="Ingredients" name="Ingredients" required />
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-field col s10">
+            <label asp-for="Directions">Enter recipe directions</label>
+            <textarea asp-for="Directions" id="Directions" class="materialize-textarea" name="Directions" required></textarea>
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-field col s10">
+            <label asp-for="Notes">Enter recipe notes</label>
+            <textarea asp-for="Notes" id="Notes" class="materialize-textarea" name="Notes"></textarea>
+        </div>
+    </div>
+
+    <input type="submit" class="waves-effect waves-light btn brown darken-2" value="Update" />
+</form>

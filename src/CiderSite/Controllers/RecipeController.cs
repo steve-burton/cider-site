@@ -65,5 +65,19 @@ namespace CiderSite.Controllers
                 .FirstOrDefault(recipes => recipes.RecipeId == id);
             return View(thisRecipe);
         }
+
+        public IActionResult Edit(int id)
+        {
+            var thisRecipe = _db.Recipes.FirstOrDefault(recipes => recipes.RecipeId == id);
+            return View(thisRecipe);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(Recipe recipe)
+        {
+            _db.Entry(recipe).State = EntityState.Modified;
+            _db.SaveChanges();
+            return RedirectToAction("Index", "Recipe");
+        }
     }
 }
