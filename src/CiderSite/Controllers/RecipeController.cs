@@ -76,5 +76,20 @@ namespace CiderSite.Controllers
             _db.SaveChanges();
             return RedirectToAction("Index", "Recipe");
         }
+
+        public IActionResult Delete(int id)
+        {
+            var thisRecipe = _db.Recipes.FirstOrDefault(recipes => recipes.RecipeId == id);
+            return View(thisRecipe);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        public IActionResult DeleteConfirmed(int id)
+        {
+            var thisRecipe= _db.Recipes.FirstOrDefault(recipes => recipes.RecipeId == id);
+            _db.Recipes.Remove(thisRecipe);
+            _db.SaveChanges();
+            return RedirectToAction("Index", "Recipe");
+        }
     }
 }
