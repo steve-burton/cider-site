@@ -18,14 +18,46 @@ font-family: 'Roboto', sans-serif;*/
     background-color: #82521F;
 }
 
+body a {
+    color: #3d2103;
+    font-size: 1.2em;
+    font-weight: 600;
+}
+body a:hover {
+    color: #82521F;
+}
+
+div.trans-background-list {
+    background-color: rgba(255, 255, 255, 0.6);
+    padding: 40px 40px 40px 40px;
+    margin-top: 30px;
+    border-radius: 6px;
+}
+div.trans-background-list img {
+    margin-right: 20px;
+}
+
+
 /* #### Shared Layout #### */
 body {
-    font-family: 'Roboto', sans-serif;
+    background-image: url(../img/apple-orchard.jpg);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: 'Muli', sans-serif;
+    /*font-family: 'Roboto', sans-serif;*/
 }
 
 .brand-logo {
     font-family: 'Boogaloo', sans-serif;
     letter-spacing: .05em;
+}
+
+span.space {
+    margin-right: 3px;
+}
+span.less-space {
+    margin-left: -1px;
 }
 
 div.nav-wrapper {
@@ -49,4 +81,36 @@ div.blog-list-photo img {
 /* #### Blog #### */
 div.blog-details img {
     width: 700px;
+}
+
+/* #### Profile #### */
+div.profile-hello h4 {
+    font-weight: 500;
+    color: white;
+}
+div.profile-blog {
+    margin-bottom: 23px;
+}
+p.profile-links {
+    margin-bottom: 30px;
+}
+div.trans-background-profile {
+    background-color: rgba(255, 255, 255, 0.6);
+    padding: 20px 40px 40px 40px;
+    margin-top: 30px;
+    border-radius: 6px;
+}
+div.trans-background-profile img {
+    margin-right: 20px;
+    }
+span.pipe-separator {
+    height: 11px;
+    border-left: solid;
+    border-color: #474747;
+    border-width: 2px;
+    margin: 0px 8px 0px 5px;
+}
+
+div.blog-content h5 {
+    margin-bottom: 15px;
 }

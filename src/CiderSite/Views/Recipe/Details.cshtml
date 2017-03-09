@@ -1,6 +1,6 @@
 ﻿@{
     Layout = "~/Views/Shared/_Layout.cshtml";
-    ViewBag.Title = "Cider Site - Blog";
+    ViewBag.Title = "Cider Site - Recipes";
 }
 
 @model CiderSite.Models.Recipe
@@ -29,5 +29,14 @@
         </div>
     }
 }
+
+@*<form class="new-vote">
+    <input type="hidden" value="@Model.RecipeId" name="UpVote" />
+    <input type="submit" class="waves-effect waves-light btn brown darken-2" value="Upvote" />
+</form>
+
+<div class="upvote">
+    <h4>@Model.UpVotes</h4>
+</div>*@
 
 <p>@Html.ActionLink("Add a comment", "Create", "RecipeComment", new { id = Model.RecipeId })</p>

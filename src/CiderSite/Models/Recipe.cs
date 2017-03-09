@@ -25,6 +25,7 @@ namespace CiderSite.Models
         [Required]
         public string Directions { get; set; }
         public string Notes { get; set; }
+        public int UpVotes { get; set; }
         public virtual ICollection<RecipeComment> RecipeComments { get; set; }
 
         public virtual ApplicationUser User { get; set; }

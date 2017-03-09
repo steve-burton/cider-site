@@ -7,21 +7,22 @@
 
 @model List<Blog>
 
-<h4>Hello, @User.Identity.Name</h4>
+<div class="profile-hello">
+    <h4>Hello, @User.Identity.Name - Here are your articles.</h4>
+</div>
 
-<div class="row profile-row">
+<div class="row trans-background-profile">
     <div class="profile-blog-list">
-        <h3>Here are your articles</h3>
-        <p>@Html.ActionLink("Write a new article", "Create", "Blog") | @Html.ActionLink("View your recipes", "Index", "Recipe")</p>
+        <p class="profile-links">@Html.ActionLink("Write a new article", "Create", "Blog") <span class="pipe-separator"></span> @Html.ActionLink("View your recipes", "Index", "Recipe")</p>
         @foreach (var blog in Model)
         {
-            <div class="profile-blog">
+            <div class="profile-blog blog-list">
                 <div class="blog-list-photo">
                     <img src="@blog.getImage()" />
                 </div>
                 <div class="blog-content">
                     <h4>@blog.Title</h4>
-                    <p>@blog.Intro</p>
+                    <h5>@blog.Intro</h5>
 
                     <div> <span class="read-article">@Html.ActionLink("Go to article", "BlogDetails", "Account", new { id = blog.BlogId })</span> </div>
                 </div>

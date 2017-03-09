@@ -7,8 +7,11 @@
 
 @model List<Recipe>
 
-<div class="profile-recipes">
-        <h3>Here are your cider recipes</h3>
+<div class="profile-hello">
+    <h4>Here are your cider recipes</h4>
+</div>
+
+<div class="trans-background-profile">
         <p>@Html.ActionLink("Add a new recipe", "Create", "Recipe")</p>
         @foreach (var recipe in Model)
         {

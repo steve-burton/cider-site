@@ -7,17 +7,19 @@
 
 @model List<Blog>
 
-@foreach (var blog in Model)
-{
-    <div class="row blog-list">
-        <div class="blog-list-photo">
-            <img src="@blog.getImage()" />
-        </div>
-        <div class="blog-content">
-            <h4>@blog.Title</h4>
-            <p>@blog.Intro</p>
+<div class="trans-background-list">
+    @foreach (var blog in Model)
+    {
+        <div class="row blog-list">
+            <div class="blog-list-photo">
+                <img src="@blog.getImage()" />
+            </div>
+            <div class="blog-content">
+                <h4>@blog.Title</h4>
+                <p>@blog.Intro</p>
 
-            <div class="read-article">@Html.ActionLink("Read article", "Details", "Blog", new { id = blog.BlogId })</div>
+                <div class="read-article">@Html.ActionLink("Read article", "Details", "Blog", new { id = blog.BlogId })</div>
+            </div>
         </div>
-    </div>
-}
+    }
+</div>
