@@ -6,23 +6,30 @@
 @model CiderSite.Models.Blog
 @using CiderSite.Models
 
-<div class="blog-details">
-    <h3>@Html.DisplayFor(model => model.Title)</h3>
-    <h5>@Html.DisplayFor(model => model.Author)</h5>
-    <img src="@Model.getImage().ToString()" />
-    <p>@Html.DisplayFor(model => model.BodyCopy)</p>
-</div>
+<div class="row trans-background-profile">
+    <div class="blog-details">
+        <h3>@Html.DisplayFor(model => model.Title)</h3>
+        <h5>@Html.DisplayFor(model => model.Author)</h5>
+        <img src="@Model.getImage().ToString()" />
+        <p>@Html.DisplayFor(model => model.BodyCopy)</p>
+    </div>
 
-@if (Model.BlogComments.Count() != 0)
-{
-    <h5>Comments</h5>
-    @foreach (var comment in Model.BlogComments)
+    @if (Model.BlogComments.Count() != 0)
     {
-        <div class="comment">
-            @comment.Body
-        </div>
+        <h5>Comments</h5>
+        @foreach (var comment in Model.BlogComments)
+        {
+            <div class="comment">
+                @comment.Body
+            </div>
+        }
+        <br />
     }
-}
 
+    @if (User.Identity.IsAuthenticated)
+    {
+        <div><span class="read-article">@Html.ActionLink("Edit article", "Edit", "Blog", new { id = Model.BlogId })</span> <span class="read-article">@Html.ActionLink("Delete article", "Delete", "Blog", new { id = Model.BlogId })</span></div>
+    }
 
-<p>@Html.ActionLink("Add a comment", "Create", "BlogComment", new { id = Model.BlogId })</p>
+    <p>@Html.ActionLink("Add a comment", "Create", "BlogComment", new { id = Model.BlogId })</p>
+</div>

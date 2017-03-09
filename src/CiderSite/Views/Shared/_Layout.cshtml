@@ -4,7 +4,7 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
-    <link href="https://fonts.googleapis.com/css?family=Boogaloo|Roboto|Patua+One|Muli:200,300,400,500,600" rel="stylesheet">
+    
     @* Materialize/CSS *@
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="~/css/materialize.css" rel="stylesheet" type="text/css" />
@@ -17,9 +17,11 @@
     <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.min.js"></script>
     <script src="https://ajax.aspnetcdn.com/ajax/jquery.validation.unobtrusive/3.2.6/jquery.validate.unobtrusive.min.js"></script>
     <script src="~/js/materialize-jquery.js" type="text/javascript"></script>
+
+    <link href="https://fonts.googleapis.com/css?family=Boogaloo|Roboto|Patua+One|Muli:200,300,400,500,600" rel="stylesheet">
 </head>
 <body>
-    @if (User.IsInRole("Admin"))
+    @if (User.IsInRole("Administrator"))
     {
         <ul id="dropdown1" class="dropdown-content">
             <li><a asp-controller="Roles" asp-action="Index">Roles</a></li>
@@ -37,9 +39,9 @@
                     @if (User.Identity.IsAuthenticated)
                     {
                         <li><span class="grey-text">@User.Identity.Name</span></li>
-                        <li><a asp-controller="Account" asp-action="Logout">Log Out</a></li>
+                        <li><a asp-controller="Account" asp-action="Logout">Log out</a></li>
                             <li><a asp-controller="Account" asp-action="Profile">View profile</a></li>
-                            @if (User.IsInRole("Admin"))
+                            @if (User.IsInRole("Administrator"))
                             {
 
                                 <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Roles<i class="material-icons right">arrow_drop_down</i></a></li>
@@ -49,15 +51,15 @@
                     else
                     {
                         <li><a asp-controller="Account" asp-action="Signup">Signup</a></li>
-                        <li><a asp-controller="Account" asp-action="Login">Log In</a></li>
+                        <li><a asp-controller="Account" asp-action="Login">Log in</a></li>
                     }
                 </ul>
                 <a href="#" data-activates="hamburger" class="button-collapse right"><i class="material-icons">menu</i></a>
                 <ul class="side-nav" id="hamburger">
                     @if (User.Identity.IsAuthenticated)
                     {
-                        <li><a asp-controller="Account" asp-action="Logout">Log Out</a></li>
-                        <li><a asp-controller="Account" asp-action="Index">View Mail List</a></li>
+                        <li><a asp-controller="Account" asp-action="Logout">Log out</a></li>
+                        <li><a asp-controller="Account" asp-action="Profile">View profile</a></li>
                         <li><a asp-controller="Roles" asp-action="Create">Create roles</a></li>
                         <li><a asp-controller="Roles" asp-action="Assign">Assign roles</a></li>
 
@@ -65,7 +67,7 @@
                     else
                     {
                         <li><a asp-controller="Account" asp-action="Signup">Signup</a></li>
-                        <li><a asp-controller="Account" asp-action="Login">Log In</a></li>
+                        <li><a asp-controller="Account" asp-action="Login">Log in</a></li>
                     }
                 </ul>
             </div>

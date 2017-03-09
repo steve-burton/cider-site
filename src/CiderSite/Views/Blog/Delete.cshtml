@@ -5,15 +5,17 @@
 
 @model CiderSite.Models.Blog
 
-<div class="blog-details">
-    <h3>Are you sure you want to delete this article?</h3>
-    <div class="delete-page">
-        <h4>@Html.DisplayFor(model => model.Title)</h4>
-        @using (Html.BeginForm())
-        {
-            <input type="submit" value="Delete" class="waves-effect waves-light btn brown darken-2" />
-        }
-        <br />
-        <div class="read-article">@Html.ActionLink("Return to article", "BlogDetails", "Account", new { id = Model.BlogId })</div>
+<div class="row trans-background-profile">
+    <div class="blog-details">
+        <h3>Are you sure you want to delete this article?</h3>
+        <div class="delete-page">
+            <h4>@Html.DisplayFor(model => model.Title)</h4>
+            @using (Html.BeginForm())
+            {
+                <input type="submit" value="Delete" class="waves-effect waves-light btn brown darken-2" />
+            }
+            <br />
+            <div class="read-article">@Html.ActionLink("Return to article", "BlogDetails", "Account", new { id = Model.BlogId })</div>
+        </div>
     </div>
 </div>

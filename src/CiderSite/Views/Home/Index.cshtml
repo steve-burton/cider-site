@@ -7,19 +7,48 @@
 
 @model List<Blog>
 
-<div class="trans-background-list">
-    @foreach (var blog in Model)
-    {
-        <div class="row blog-list">
-            <div class="blog-list-photo">
-                <img src="@blog.getImage()" />
-            </div>
-            <div class="blog-content">
-                <h4>@blog.Title</h4>
-                <p>@blog.Intro</p>
+@if (User.Identity.IsAuthenticated)
+{
+    <div class="profile-hello">
+        <h4>Hello @User.Identity.Name</h4>
+    </div>
+    <div class="trans-background-list">
+        @foreach (var blog in Model)
+        {
+            <div class="row blog-list">
+                <div class="blog-list-photo">
+                    <img src="@blog.getImage()" />
+                </div>
+                <div class="blog-content">
+                    <h4>@blog.Title</h4>
+                    <p>@blog.Intro</p>
 
-                <div class="read-article">@Html.ActionLink("Read article", "Details", "Blog", new { id = blog.BlogId })</div>
+                    <div class="read-article">@Html.ActionLink("Read article", "Details", "Blog", new { id = blog.BlogId })</div>
+                </div>
             </div>
-        </div>
+        }
+    </div>
     }
-</div>
+    else
+    {
+    <div class="trans-background-list">
+
+        <h4>Please @Html.ActionLink("sign up", "Signup") for a user account, or @Html.ActionLink("log in", "Login").</h4>
+
+        @foreach (var blog in Model)
+        {
+            <div class="row blog-list">
+                <div class="blog-list-photo">
+                    <img src="@blog.getImage()" />
+                </div>
+                <div class="blog-content">
+                    <h4>@blog.Title</h4>
+                    <p>@blog.Intro</p>
+
+                    <div class="read-article">@Html.ActionLink("Read article", "Details", "Blog", new { id = blog.BlogId })</div>
+                </div>
+            </div>
+        }
+    </div>
+}
+

@@ -6,43 +6,45 @@
 @model CiderSite.Models.Recipe
 @using CiderSite.Models
 
-<h3>Add a cider recipe</h3>
-<form asp-controller="Recipe" asp-action="Create" method="post">
+<div class="row trans-background-profile">
+    <h3>Add a cider recipe</h3>
+    <form asp-controller="Recipe" asp-action="Create" method="post">
 
-    <div class="row">
-        <div class="input-field col s10">
-            <label for="Author">Author</label>
-            <input type="text" id="Author" name="Author" required />
+        <div class="row">
+            <div class="input-field col s10">
+                <label for="Author">Author</label>
+                <input type="text" id="Author" name="Author" required />
+            </div>
         </div>
-    </div>
 
-    <div class="row">
-        <div class="input-field col s10">
-            <label for="Title">Recipe title</label>
-            <input type="text" id="Title" name="Title" required />
+        <div class="row">
+            <div class="input-field col s10">
+                <label for="Title">Recipe title</label>
+                <input type="text" id="Title" name="Title" required />
+            </div>
         </div>
-    </div>
 
-    <div class="row">
-        <div class="input-field col s10">
-            <label for="Ingredients">Enter ingredient list</label>
-            <textarea id="Ingredients" class="materialize-textarea" name="Ingredients" required></textarea>
+        <div class="row">
+            <div class="input-field col s10">
+                <label for="Ingredients">Enter ingredient list</label>
+                <textarea id="Ingredients" class="materialize-textarea" name="Ingredients" required></textarea>
+            </div>
         </div>
-    </div>
 
-    <div class="row">
-        <div class="input-field col s10">
-            <label for="Directions">Enter directions</label>
-            <textarea id="Directions" class="materialize-textarea" name="Directions" required></textarea>
+        <div class="row">
+            <div class="input-field col s10">
+                <label for="Directions">Enter directions</label>
+                <textarea id="Directions" class="materialize-textarea" name="Directions" required></textarea>
+            </div>
         </div>
-    </div>
 
-    <div class="row">
-        <div class="input-field col s10">
-            <label for="Notes">Enter cider-making notes</label>
-            <textarea id="Notes" class="materialize-textarea" name="Notes"></textarea>
+        <div class="row">
+            <div class="input-field col s10">
+                <label for="Notes">Enter cider-making notes</label>
+                <textarea id="Notes" class="materialize-textarea" name="Notes"></textarea>
+            </div>
         </div>
-    </div>
 
-    <input type="submit" class="waves-effect waves-light btn brown darken-2" value="Add recipe" />
-</form>
+        <input type="submit" class="waves-effect waves-light btn brown darken-2" value="Add recipe" />
+    </form>
+</div>

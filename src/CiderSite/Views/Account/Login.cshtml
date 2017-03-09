@@ -4,23 +4,28 @@
 }
 @model CiderSite.ViewModels.RegisterViewModel
 
-<h3>Login</h3>
-<form asp-controller="Account" asp-action="Login">
-    <div asp-validation-summary="ModelOnly" class="red-text"></div>
-    <div class="row">
-        <div class="input-field col s12">
-            <input asp-for="Email">
-            <span asp-validation-for="Email" class="red-text"></span>
-            <label asp-for="Email"></label>
-        </div>
-    </div>
-    <div class="row">
-        <div class="input-field col s12">
-            <input asp-for="Password">
-            <span asp-validation-for="Password" class="red-text"></span>
-            <label asp-for="Password"></label>
-        </div>
-    </div>
+<div class="profile-hello">
+    <h4>Login</h4>
+</div>
 
-    <input type="submit" class="waves-effect waves-light btn brown darken-2" value="Log in" />
-</form>
+<div class="row trans-background-profile">
+    <form asp-controller="Account" asp-action="Login">
+        <div asp-validation-summary="ModelOnly" class="red-text"></div>
+        <div class="row">
+            <div class="input-field col s12">
+                <input asp-for="Email">
+                <span asp-validation-for="Email" class="red-text"></span>
+                <label asp-for="Email"></label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <input asp-for="Password">
+                <span asp-validation-for="Password" class="red-text"></span>
+                <label asp-for="Password"></label>
+            </div>
+        </div>
+
+        <input type="submit" class="waves-effect waves-light btn brown darken-2" value="Log in" />
+    </form>
+</div>

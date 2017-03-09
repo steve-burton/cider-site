@@ -5,7 +5,7 @@
 ### By **Steve Burton**
 
 ### Specifications
-This is a project to create a web application XXX.
+This is a project to create a cider-maker's community blog.
 
 
 ## Setup/Installation Requirements
@@ -18,7 +18,7 @@ Add to the top of the file: CREATE DATABASE CiderSite
 GO
 Go to the top of the query and hit execute
 ```
-There is a dummy Admin in the database to get you started:<br>
+There is a dummy Administrator account in the database to get you started:<br>
 User name: johndoe@gmail.com<br>
 Password: Password-1
 

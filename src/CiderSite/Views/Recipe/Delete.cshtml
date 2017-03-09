@@ -5,8 +5,8 @@
 
 @model CiderSite.Models.Recipe
 
-<div class="blog-details">
-    <h3>Are you sure you want to delete this recipe?</h3>
+<div class="blog-details trans-background-profile">
+    <h3>Are you sure you want to delete @Model.Title?</h3>
     <div class="delete-page">
         <h4>@Html.DisplayFor(model => model.Title)</h4>
         @using (Html.BeginForm())
