@@ -56,7 +56,7 @@ div.input-field textarea {
 div.input-field textarea:focus {
     border-bottom: solid;
     border-color: #3d2103;
-    border-width: 2px;
+    border-width: 10px;
 }
 
 input.file-path {
@@ -76,6 +76,12 @@ input.file-path[type=text] {
 
 div.input-field label {
     color: black;
+}
+
+input.validate {
+    border-bottom: solid;
+    border-color: #82521F;
+    border-width: 1px;
 }
 
 
