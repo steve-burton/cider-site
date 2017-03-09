@@ -45,7 +45,8 @@ div.input-field input {
 div.input-field input[type=text]:focus {
     border-bottom: solid;
     border-color: #3d2103;
-    border-width: 2px;
+    box-shadow: 0 1px 0 0 #3d2103;
+    border-width: 1px;
 }
 
 div.input-field textarea {
@@ -53,23 +54,22 @@ div.input-field textarea {
     border-color: #82521F;
     border-width: 1px;
 }
-div.input-field textarea:focus {
+div.input-field textarea.materialize-textarea:focus {
     border-bottom: solid;
     border-color: #3d2103;
-    border-width: 10px;
+    border-width: 1px;
+    box-shadow: 0 1px 0 0 #3d2103;
 }
 
 input.file-path {
     border-bottom: solid;
     border-color: #82521F;
     border-width: 1px;
-}
-
-div.file-path-wrapper {
     color: black;
 }
 
-input.file-path[type=text] {
+
+input.file-path::placeholder {
     
     color: black;
 }

@@ -9,25 +9,25 @@
     <h3>Edit @Model.Title</h3>
     <form asp-controller="Blog" asp-action="Edit" method="post" enctype="multipart/form-data">
         <div class="row">
-            <div class="input-field col s10">
+            <div class="input-field col s12">
                 <label asp-for="Author">Author</label>
                 <input asp-for="Author" id="Author" name="Author" required />
             </div>
         </div>
         <div class="row">
-            <div class="input-field col s10">
+            <div class="input-field col s12">
                 <label asp-for="Title">Title</label>
                 <input asp-for="Title" id="Title" name="Title" required />
             </div>
         </div>
         <div class="row">
-            <div class="input-field col s10">
+            <div class="input-field col s12">
                 <label asp-for="Intro">Intro</label>
                 <input asp-for="Intro" id="Intro" name="Intro" required />
             </div>
         </div>
         <div class="row">
-            <div class="input-field col s10">
+            <div class="input-field col s12">
                 <label asp-for="BodyCopy">Enter blog content</label>
                 <textarea asp-for="BodyCopy" id="BodyCopy" class="materialize-textarea" name="BodyCopy" required></textarea>
             </div>
@@ -37,7 +37,7 @@
                 <span>Choose photo file to upload</span>
                 <input type="file" name="Data">
             </div>
-            <div class="file-path-wrapper col s10">
+            <div class="file-path-wrapper col s12">
                 <input class="file-path validate" type="text" placeholder="Upload image file">
             </div>
         </div>
