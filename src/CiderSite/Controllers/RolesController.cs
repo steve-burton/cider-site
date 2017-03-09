@@ -28,11 +28,13 @@ namespace CiderSite.Controllers
             return View(roles);
         }
 
+        [Authorize(Roles = "Administrator")]
         public IActionResult Create()
         {
             return View();
         }
 
+        [Authorize(Roles = "Administrator")]
         [HttpPost]
         public IActionResult Create(string roleName)
         {
@@ -51,11 +53,15 @@ namespace CiderSite.Controllers
                 return View();
             }
         }
+
+        [Authorize(Roles = "Administrator")]
         public IActionResult Assign()
         {
             List<IdentityRole> roles = _db.Roles.ToList();
             return View(roles);
         }
+
+        [Authorize(Roles = "Administrator")]
         [HttpPost]
         public async Task<ActionResult> Assign(string userName, string userRole)
         {

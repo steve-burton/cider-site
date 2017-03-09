@@ -7,6 +7,17 @@ font-family: 'Roboto', sans-serif;*/
 .read-article {
     margin-top: 5px;
 }
+
+
+body a {
+    color: #3d2103;
+    font-size: 1.2em;
+    font-weight: 600;
+}
+body a:hover {
+    color: #82521F;
+}
+
 .read-article a {
     background-color: #3d2103;
     color: white;
@@ -16,15 +27,7 @@ font-family: 'Roboto', sans-serif;*/
 }
 .read-article a:hover {
     background-color: #82521F;
-}
-
-body a {
-    color: #3d2103;
-    font-size: 1.2em;
-    font-weight: 600;
-}
-body a:hover {
-    color: #82521F;
+    color: white;
 }
 
 div.trans-background-list {
@@ -43,6 +46,19 @@ div.input-field input {
     border-width: 1px;
 }
 div.input-field input[type=text]:focus {
+    border-bottom: solid;
+    border-color: #3d2103;
+    box-shadow: 0 1px 0 0 #3d2103;
+    border-width: 1px;
+}
+
+div.input-field input[type=password]:focus {
+    border-bottom: solid;
+    border-color: #3d2103;
+    box-shadow: 0 1px 0 0 #3d2103;
+    border-width: 1px;
+}
+div.input-field input[type=email]:focus {
     border-bottom: solid;
     border-color: #3d2103;
     box-shadow: 0 1px 0 0 #3d2103;
@@ -164,6 +180,14 @@ span.pipe-separator {
 
 div.blog-content h5 {
     margin-bottom: 15px;
+}
+
+
+div.input-field select {
+    border-bottom: solid;
+    border-color: #82521F;
+    border-width: 1px;
+
 }
 
 

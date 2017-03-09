@@ -8,6 +8,7 @@
 <div class="row trans-background-profile">
     <h3>Edit @Model.Title</h3>
     <form asp-controller="Blog" asp-action="Edit" method="post" enctype="multipart/form-data">
+        <input type="hidden" name="BlogId" value="@Model.BlogId" />
         <div class="row">
             <div class="input-field col s12">
                 <label asp-for="Author">Author</label>
