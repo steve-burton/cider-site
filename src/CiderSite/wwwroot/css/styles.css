@@ -134,10 +134,15 @@ a.button-collapse {
 
 /* #### Home #### */
 div.blog-list {
-    display: -webkit-flex;
+    /*display: -webkit-flex;
     display: flex;
     -webkit-flex-wrap: wrap;
-    flex-wrap: wrap;
+    flex-wrap: wrap;*/
+}
+
+div.blog-list-photo {
+    float: left;
+    clear: right;
 }
 
 div.blog-list-photo img {
