@@ -14,8 +14,7 @@ Clone this repository and open it in Visual Studio.
 * _**In SSMS:**_
 ```
 Open CiderSite.sql
-Add to the top of the file: CREATE DATABASE CiderSite
-GO
+
 Go to the top of the query and hit execute
 ```
 There is a dummy Administrator account in the database to get you started:<br>
