@@ -85,9 +85,25 @@ input.file-path {
 }
 
 
-input.file-path::placeholder {
-    
+div.file-path-wrapper div.file-field input.file-path::placeholder {
     color: black;
+}
+
+div.file-path-wrapper div.file-field input.file-path::placeholder {
+    color: black;
+}
+
+input.file-path::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: black;
+}
+input.file-path::-moz-placeholder { /* Firefox 19+ */
+  color: black;
+}
+input.file-path:-ms-input-placeholder { /* IE 10+ */
+  color: black;
+}
+input.file-path:-moz-placeholder { /* Firefox 18- */
+  color: black;
 }
 
 div.input-field label {
