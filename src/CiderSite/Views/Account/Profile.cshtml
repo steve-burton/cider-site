@@ -16,18 +16,21 @@
         <p class="profile-links">@Html.ActionLink("Write a new article", "Create", "Blog") <span class="pipe-separator"></span> @Html.ActionLink("View your recipes", "Index", "Recipe")</p>
         @foreach (var blog in Model)
         {
-            <div class="profile-blog blog-list">
+            <div class="row profile-blog blog-list">
                 <div class="blog-list-photo">
-                    <img src="@blog.getImage()" />
+                    @if (blog.Data != null)
+                    {
+                        <img src="@blog.getImage()" />
+                    }
                 </div>
 
                 <div class="blog-content">
                     <h4>@blog.Title</h4>
-                    <h5>@blog.Intro</h5>
+                    <p>@blog.Intro</p>
 
                     <div> <span class="read-article">@Html.ActionLink("Go to article", "Details", "Blog", new { id = blog.BlogId })</span> </div>
                 </div>
-            </div><br />
+            </div>
         }
     </div>
 </div>
