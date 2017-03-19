@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using CiderSite.Models;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CiderSite.Controllers
 {
@@ -29,6 +30,7 @@ namespace CiderSite.Controllers
             return View();
         }
 
+        [Authorize]
         [HttpPost]
         public IActionResult Create(BlogComment blogComment, int blogId)
         {

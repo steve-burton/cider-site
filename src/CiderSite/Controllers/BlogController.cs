@@ -29,12 +29,13 @@ namespace CiderSite.Controllers
         }
 
 
+        [Authorize]
         public IActionResult Create()
         {
             return View();
         }
 
-        //[Authorize]
+        [Authorize]
         [HttpPost]
         public async Task<IActionResult> Create(string Author, string Title, string Intro, string BodyCopy, IFormFile Data)
         {
@@ -69,12 +70,14 @@ namespace CiderSite.Controllers
             return View(thisBlog);
         }
 
+        [Authorize]
         public IActionResult Edit(int id)
         {
             var thisBlog = _db.Blogs.FirstOrDefault(blogs => blogs.BlogId == id);
             return View(thisBlog);
         }
 
+        [Authorize]
         [HttpPost]
         public IActionResult Edit(Blog blog, IFormFile Data)
         {
@@ -92,12 +95,14 @@ namespace CiderSite.Controllers
             return RedirectToAction("Profile", "Account");
         }
 
+        [Authorize]
         public IActionResult Delete(int id)
         {
             var thisBlog = _db.Blogs.FirstOrDefault(blogs => blogs.BlogId == id);
             return View(thisBlog);
         }
 
+        [Authorize]
         [HttpPost, ActionName("Delete")]
         public IActionResult DeleteConfirmed(int id)
         {
