@@ -43,7 +43,10 @@
         {
             <div class="row blog-list">
                 <div class="blog-list-photo">
-                    <img src="@blog.getImage()" />
+                    @if (blog.Data != null)
+                    {
+                        <img src="@blog.getImage()" />
+                    }
                 </div>
                 <div class="blog-content">
                     <h4>@blog.Title</h4>

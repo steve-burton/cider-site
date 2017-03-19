@@ -29,7 +29,8 @@
         <br />
     }
 
-    @if (User.Identity.IsAuthenticated)
+    @*@if (User.Identity.IsAuthenticated)*@
+    @if (User.Identity == Model.User)
     {
         <div><span class="read-article">@Html.ActionLink("Edit article", "Edit", "Blog", new { id = Model.BlogId })</span> <span class="read-article">@Html.ActionLink("Delete article", "Delete", "Blog", new { id = Model.BlogId })</span></div>
     }

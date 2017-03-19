@@ -79,8 +79,10 @@ namespace CiderSite.Controllers
 
         [Authorize]
         [HttpPost]
-        public IActionResult Edit(Blog blog, IFormFile Data)
+        public async Task<IActionResult> Edit(Blog blog, IFormFile Data)
         {
+            string userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            ApplicationUser currentUser = await _userManager.FindByIdAsync(userId);
             if (Data != null)
             {
                 using (Stream filestream = Data.OpenReadStream())
@@ -94,6 +96,31 @@ namespace CiderSite.Controllers
             _db.SaveChanges();
             return RedirectToAction("Profile", "Account");
         }
+
+        //[Authorize]
+        //public IActionResult Edit(int id)
+        //{
+        //    var thisBlog = _db.Blogs.FirstOrDefault(blogs => blogs.BlogId == id);
+        //    return View(thisBlog);
+        //}
+
+        //[HttpPost]
+        //public IActionResult Edit(Blog blog, IFormFile Data)
+        //{
+
+        //    if (Data != null)
+        //    {
+        //        using (Stream filestream = Data.OpenReadStream())
+        //        using (MemoryStream mstream = new MemoryStream())
+        //        {
+        //            filestream.CopyTo(mstream);
+        //            blog.Data = mstream.ToArray();
+        //        }
+        //    }
+        //    _db.Entry(blog).State = EntityState.Modified;
+        //    _db.SaveChanges();
+        //    return RedirectToAction("Profile", "Account");
+        //}
 
         [Authorize]
         public IActionResult Delete(int id)
