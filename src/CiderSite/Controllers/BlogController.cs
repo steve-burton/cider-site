@@ -28,7 +28,6 @@ namespace CiderSite.Controllers
             _db = db;
         }
 
-
         [Authorize]
         public IActionResult Create()
         {
@@ -69,6 +68,34 @@ namespace CiderSite.Controllers
                 .FirstOrDefault(blogs => blogs.BlogId == id);
             return View(thisBlog);
         }
+
+        //For resource Authorization
+        //IAuthorizationService _authorizationService;
+        //public BlogController(IAuthorizationService authorizationService)
+        //{
+        //    _authorizationService = authorizationService;
+        //}
+        //Task<bool> AuthorizeAsync(ClaimsPrincipal user,
+        //                     object resource,
+        //                     IEnumerable<IAuthorizationRequirement> requirements);
+
+        //[Authorize]
+        //public async Task<IActionResult> Edit(int id)
+        //{
+        //    Blog thisBlog = _db.Blogs.FirstOrDefault(blogs => blogs.BlogId == id);
+        //    if (thisBlog == null)
+        //    {
+        //        return new HttpNotFoundResult();
+        //    }
+        //    if (await _authorizationService.AuthorizeAsync(User, thisBlog, "EditPolicy"))
+        //    {
+        //        return View(thisBlog);
+        //    }
+        //    else
+        //    {
+        //        return new ChallengeResult();
+        //    }
+        //}
 
         [Authorize]
         public IActionResult Edit(int id)

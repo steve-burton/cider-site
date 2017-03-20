@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using CiderSite.Models;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Identity;
-
+using Microsoft.AspNetCore.Authorization;
 
 namespace CiderSite.Controllers
 {
@@ -24,12 +24,15 @@ namespace CiderSite.Controllers
         }
 
         private ApplicationDbContext _db = new ApplicationDbContext();
+
+        [Authorize]
         public IActionResult Create(int id)
         {
             ViewBag.RecipeId = id;
             return View();
         }
 
+        [Authorize]
         [HttpPost]
         public IActionResult Create(RecipeComment recipeComment, int recipeId)
         {

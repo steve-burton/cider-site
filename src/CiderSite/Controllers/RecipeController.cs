@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Http;
 using System.Diagnostics;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CiderSite.Controllers
 {
@@ -26,6 +27,7 @@ namespace CiderSite.Controllers
             _db = db;
         }
 
+        [Authorize]
         public IActionResult Index()
         {
             var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
@@ -35,11 +37,13 @@ namespace CiderSite.Controllers
             return View(recipes);
         }
 
+        [Authorize]
         public IActionResult Create()
         {
             return View();
         }
 
+        [Authorize]
         [HttpPost]
         public async Task<IActionResult> Create(string Author, string Title, string Ingredients, string Directions, string Notes)
         {
@@ -54,6 +58,7 @@ namespace CiderSite.Controllers
             return RedirectToAction("Index", "Recipe");
         }
 
+        [Authorize]
         public IActionResult Details(int id)
         {
             var thisRecipe = _db.Recipes
@@ -62,6 +67,7 @@ namespace CiderSite.Controllers
             return View(thisRecipe);
         }
 
+        [Authorize]
         public IActionResult Edit(int id)
         {
             ViewBag.RecipeId = id;
@@ -69,6 +75,7 @@ namespace CiderSite.Controllers
             return View(thisRecipe);
         }
 
+        [Authorize]
         [HttpPost]
         public IActionResult Edit(Recipe recipe, int recipeId)
         {
@@ -77,12 +84,14 @@ namespace CiderSite.Controllers
             return RedirectToAction("Index", "Recipe");
         }
 
+        [Authorize]
         public IActionResult Delete(int id)
         {
             var thisRecipe = _db.Recipes.FirstOrDefault(recipes => recipes.RecipeId == id);
             return View(thisRecipe);
         }
 
+        [Authorize]
         [HttpPost, ActionName("Delete")]
         public IActionResult DeleteConfirmed(int id)
         {

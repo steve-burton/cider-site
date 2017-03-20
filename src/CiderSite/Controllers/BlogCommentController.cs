@@ -24,6 +24,8 @@ namespace CiderSite.Controllers
         }
 
         private ApplicationDbContext _db = new ApplicationDbContext();
+
+        [Authorize]
         public IActionResult Create(int id)
         {
             ViewBag.BlogId = id;
