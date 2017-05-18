@@ -4,7 +4,7 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
-    
+
     @* Materialize/CSS *@
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="~/css/materialize.css" rel="stylesheet" type="text/css" />
@@ -40,7 +40,7 @@
                     {
                         <li><span class="grey-text">@User.Identity.Name</span></li>
                         <li><a asp-controller="Account" asp-action="Logout">Log out</a></li>
-                            <li><a asp-controller="Account" asp-action="Profile">View profile</a></li>
+                        <li><a asp-controller="Account" asp-action="Profile">View profile</a></li>
                             @if (User.IsInRole("Administrator"))
                             {
 
@@ -60,8 +60,11 @@
                     {
                         <li><a asp-controller="Account" asp-action="Logout">Log out</a></li>
                         <li><a asp-controller="Account" asp-action="Profile">View profile</a></li>
-                        <li><a asp-controller="Roles" asp-action="Create">Create roles</a></li>
-                        <li><a asp-controller="Roles" asp-action="Assign">Assign roles</a></li>
+                        @if (User.IsInRole("Administrator"))
+                        {
+                            <li><a asp-controller="Roles" asp-action="Create">Create roles</a></li>
+                            <li><a asp-controller="Roles" asp-action="Assign">Assign roles</a></li>
+                        }
 
                     }
                     else

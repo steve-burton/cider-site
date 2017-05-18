@@ -69,34 +69,6 @@ namespace CiderSite.Controllers
             return View(thisBlog);
         }
 
-        //For resource Authorization
-        //IAuthorizationService _authorizationService;
-        //public BlogController(IAuthorizationService authorizationService)
-        //{
-        //    _authorizationService = authorizationService;
-        //}
-        //Task<bool> AuthorizeAsync(ClaimsPrincipal user,
-        //                     object resource,
-        //                     IEnumerable<IAuthorizationRequirement> requirements);
-
-        //[Authorize]
-        //public async Task<IActionResult> Edit(int id)
-        //{
-        //    Blog thisBlog = _db.Blogs.FirstOrDefault(blogs => blogs.BlogId == id);
-        //    if (thisBlog == null)
-        //    {
-        //        return new HttpNotFoundResult();
-        //    }
-        //    if (await _authorizationService.AuthorizeAsync(User, thisBlog, "EditPolicy"))
-        //    {
-        //        return View(thisBlog);
-        //    }
-        //    else
-        //    {
-        //        return new ChallengeResult();
-        //    }
-        //}
-
         [Authorize]
         public IActionResult Edit(int id)
         {
@@ -123,31 +95,6 @@ namespace CiderSite.Controllers
             _db.SaveChanges();
             return RedirectToAction("Profile", "Account");
         }
-
-        //[Authorize]
-        //public IActionResult Edit(int id)
-        //{
-        //    var thisBlog = _db.Blogs.FirstOrDefault(blogs => blogs.BlogId == id);
-        //    return View(thisBlog);
-        //}
-
-        //[HttpPost]
-        //public IActionResult Edit(Blog blog, IFormFile Data)
-        //{
-
-        //    if (Data != null)
-        //    {
-        //        using (Stream filestream = Data.OpenReadStream())
-        //        using (MemoryStream mstream = new MemoryStream())
-        //        {
-        //            filestream.CopyTo(mstream);
-        //            blog.Data = mstream.ToArray();
-        //        }
-        //    }
-        //    _db.Entry(blog).State = EntityState.Modified;
-        //    _db.SaveChanges();
-        //    return RedirectToAction("Profile", "Account");
-        //}
 
         [Authorize]
         public IActionResult Delete(int id)
